@@ -48,7 +48,7 @@ p {
 
 /* Links */
 a {
-    color: #1abc9c;
+    color: #8BE3FF;
     word-wrap: break-word;
 
     -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
@@ -95,7 +95,7 @@ a:after {
 }
 
 .navbar-inverse {
-	background-color: #1abc9c;
+	background-color:#000;
 	border-color: #16a085;
 }
 
@@ -240,4 +240,9 @@ bt {
 .glyphicon {
 	font-size: 40px;
 	color: #1abc9c;
+}
+
+.logo {
+	height:150px;
+	width:150px;
 }
