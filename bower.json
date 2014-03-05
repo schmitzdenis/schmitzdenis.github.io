@@ -1,0 +1,31 @@
+{
+  "name": "codeapp",
+  "version": "0.0.1",
+  "homepage": "schmitzdenis.github.io",
+  "authors": [
+    "Denis Schmitz <schmitzdenis@gmail.com>"
+  ],
+  "description": "Contact informations, skills description, tech tweets",
+  "main": "app/index.html",
+  "keywords": [
+    "javascript",
+    "freelance",
+    "skills",
+    "denis",
+    "schmitz"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "backbone": "~1.1.0",
+    "bootstrap": "~3.1.0",
+    "requirejs": "~2.1.10"
+  }
+}
