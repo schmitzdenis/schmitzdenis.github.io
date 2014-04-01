@@ -4,9 +4,14 @@ angular.module('initApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'ngRoute'
+  'ngRoute',
+  'duScroll'
 ])
   .config(function ($routeProvider,$locationProvider) {
+    $locationProvider
+    .html5Mode(true)
+    .hashPrefix('!');
+    
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -16,5 +21,5 @@ angular.module('initApp', [
         redirectTo: '/'
       });
     // use the HTML5 History API
-    $locationProvider.html5Mode(true);
+
   });
