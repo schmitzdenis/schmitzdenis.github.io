@@ -1,5 +1,5 @@
  <div class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
-    <div class="container">
+    <div class="container-fluid">
       
       <div class="navbar-header">
         <a class="navbar-brand" href="#about">C<span class="small glyphicon glyphicon-dashboard"></span>DEAPP</a>
@@ -23,21 +23,17 @@
     </div>
 </div>
 
-<div class="container">
-  <div class="section jumbotron" id="about">
+<div class="view-content">
+  <div class="section" id="about">
     <!-- <img class="logo" src="images/user.jpg" alt="codeapp"> -->
     <h1>Denis Schmitz</h1>
-    <p>
-      Web and Hybrid application Architect and Developer.
-
-      " Deeply convinced that most of the applications should be built using web technologies, i'm passionate about client and server side application coding.
-
+     <h3>Web and Hybrid application Architect and Developer.</h3>
+    <blockquote>
+      Deeply convinced that most of the applications should be built using web technologies, i'm passionate about client and server side application coding.
       I constantly seek improvements in security, performance, workflow, design and ergonomy.
-      
-      I think nowadays you should be able to use your app regardless the device you access it with. I therefore grown skills in hybrid, RESTful and responsive app development. "
-
-      Expert in Javascript and PHP [ZF] development.
-    </p>
+      I think nowadays you should be able to use your app regardless the device you access it with. I therefore grown skills in hybrid, RESTful and responsive app development.
+    </blockquote>
+    <h4> Expert in <strong>Javascript</strong> and PHP <abbr title="Zend Framework">ZF</abbr>.</h4>
   </div>
   <div class="section" id="skills">
     <!-- <img class="logo" src="images/user.jpg" alt="codeapp"> -->
@@ -51,10 +47,10 @@
       
       I think nowadays you should be able to use your app regardless the device you access it with. I therefore grown skills in hybrid, RESTful and responsive app development. "
 
-      Expert in Javascript and PHP [ZF] development.
+      Expert in Javascript and PHP <abbr title="Zend Framework">ZF</abbr> .
     </p>
   </div>
-  <div class="section container-fluid" id="vision">
+  <div class="section " id="vision">
     <!-- <img class="logo" src="images/user.jpg" alt="codeapp"> -->
     <h1>Techs</h1>
     <div class="row">
@@ -64,7 +60,7 @@
               <div class="frontside">
                 <div class="{{tech.css}}"></div>
                 
-                  <span>{{tech.title}}</span>
+                  <span class="">{{tech.title}}</span>
              
               </div>
             
@@ -75,7 +71,7 @@
       </div>
     </div><!--row-fluid -->
   </div>
-    <div class="section" id="tweets">
+  <div class="section" id="tweets">
     <!-- <img class="logo" src="images/user.jpg" alt="codeapp"> -->
     <h1>Tweet</h1>
     <p>
@@ -87,39 +83,34 @@
       
       I think nowadays you should be able to use your app regardless the device you access it with. I therefore grown skills in hybrid, RESTful and responsive app development. "
 
-      Expert in Javascript and PHP [ZF] development.
+      Expert in Javascript and PHP [ZF].
     </p>
   </div>
-    <div class="section" id="contact">
+  <div class="section" id="contact">
     <!-- <img class="logo" src="images/user.jpg" alt="codeapp"> -->
     <h1>Contact</h1>
+    <form role="form">
+      
+      <div class="form-group">
+        <label for="InputEmail">Your Email</label>
+        <input type="email" class="form-control" id="InputEmail" placeholder="Your Email">
+      </div>
+      
+      <div class="form-group">
+        <label for="InputMessage">Message</label>
+        <textarea  class="form-control" id="InputMessage" placeholder="Message"></textarea>
+      </div>
 
+      <button type="submit" class="btn btn-info btn-lg btn-block"><span class="glyphicon glyphicon-send"></span></button>
+
+  </form>
     
-        <div class="row">
-          
-            <div class="col-lg-6">
-              <div class="form-group">
-                <label for="InputEmail">Your Email</label>
-                <div class="input-group">
-                  <input type="email" class="form-control" id="InputEmail" name="InputEmail" placeholder="Enter Email" required  >
-              </div>
-
-              <div class="form-group">
-                <label for="InputMessage">Message</label>
-                <div class="input-group" >
-                  <textarea name="InputMessage" id="InputMessage" class="form-control" rows="3" required></textarea>
-              </div>
-              <div class="form-group">
-                <input type="submit" name="submit" id="submit" value="Send" class="btn btn-info pull-right">
-              </div>
-              
-            </div>
-          </form>
-          <hr class="featurette-divider hidden-lg">
-    </div>
-    </div>
-  </div>
-  <footer>
-    <p>♥ from appcode footer</p>
-  </footer>
 </div>
+<div class="section">
+<footer>
+  <p>♥ from appcode footer</p>
+</footer>
+</div>
+</div>
+
+

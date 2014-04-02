@@ -2,8 +2,13 @@
 @import url(http://fonts.googleapis.com/css?family=Lato);
 @import '../bower_components/sass-bootstrap/lib/bootstrap';
 
-body{
-	padding-top:$navbar-height + 10;
+
+div.view-content{
+	@extend .container-fluid;
+	padding-top:$navbar-height + 8px;
+}
+div.section{
+	@extend .col-xs-12;
 }
 
 
@@ -24,9 +29,9 @@ body{
 $tech-padding : 0px;
 $tech-logo-height : 300px ;
 $tech-logo-width : 300px;
-$tech-title-height : 50px ;
+$tech-title-height : 35px ;
 $tech-border-color : $gray-dark ;
-$tech-border-radius : 2px;
+$tech-border-radius : 3px;
 
 div.tech-logo{
 	background : $gray-lighter;
@@ -64,18 +69,19 @@ div.tech-logo{
 		}
 
 	  	span{
-	  		width:100%;
-	  		display : block;
-  			color : #fff;
-  			text-align : center;
-  			font-size : 1.5em;
-  			line-height: $tech-title-height;
-  			height : $tech-title-height;
-  			background : $tech-border-color;
-	  		border-radius:0px 0px $tech-border-radius $tech-border-radius;
-	  		
+	  		@extend .center-block;
+	  		@extend .text-center;
+	  		color : #fff;
+	  		background : $tech-border-color;
+	  		font-size : 1.3em;
+	  		line-height: $tech-title-height;
 	  	}
 	  }
   	}
+}
+
+#about{
+	background:$brand-primary;
+	color: #fff;
 }
 
