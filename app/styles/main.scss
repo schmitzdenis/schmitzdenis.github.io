@@ -3,6 +3,26 @@
 @import '../bower_components/sass-bootstrap/lib/bootstrap';
 
 
+
+
+$tech-padding : 0px;
+$tech-logo-height : 300px ;
+$tech-logo-width : 300px;
+$tech-title-height : 35px ;
+$tech-border-color : $gray-dark ;
+$tech-border-radius : 3px;
+
+$section-color-darker : #201B2E;//#433C7E;
+$section-color-light : #8D79F2;
+$section-color-dark : #191A2A;
+$section-color-mid : #222B40;
+
+$section-color-yellow : #FAFFBD;
+
+
+
+
+
 div.view-content{
 	@extend .container-fluid;
 	padding-top:$navbar-height + 8px;
@@ -26,12 +46,6 @@ div.section{
 	}
 }
 
-$tech-padding : 0px;
-$tech-logo-height : 300px ;
-$tech-logo-width : 300px;
-$tech-title-height : 35px ;
-$tech-border-color : $gray-dark ;
-$tech-border-radius : 3px;
 
 div.tech-logo{
 	background : $gray-lighter;
@@ -80,8 +94,12 @@ div.tech-logo{
   	}
 }
 
-#about{
-	background:$brand-primary;
-	color: #fff;
+
+#contact{
+	background:$section-color-darker ;
+	color : $section-color-light;
 }
 
+#footer{
+	background : $gray-darker;
+}
