@@ -74,35 +74,41 @@
   <div class="section" id="tweets">
     <!-- <img class="logo" src="images/user.jpg" alt="codeapp"> -->
     <h1>Tweet</h1>
-    <p>
-      Web and Hybrid application Architect and Developer.
-
-      " Deeply convinced that most of the applications should be built using web technologies, i'm passionate about client and server side application coding.
-
-      I constantly seek improvements in security, performance, workflow, design and ergonomy.
-      
-      I think nowadays you should be able to use your app regardless the device you access it with. I therefore grown skills in hybrid, RESTful and responsive app development. "
-
-      Expert in Javascript and PHP [ZF].
-    </p>
+    
+      <div class="tech-logo thumbnails" ng-repeat = "tech in techs">
+        <div class="row">
+          <div class="col-xs-2" >
+            <div class="tweet-thumbnail" >
+                <div class="frontside">
+                  <div class="{{tech.css}}"></div>
+                    <span class="">{{tech.title}}</span>
+                </div>
+            </div> 
+          </div>
+          <div class="col-xs-10" >
+            <span>This is a hell of a tweet .. </span>
+          </div>     
+      </div><!--row -->
+    </div>
   </div>
   <div class="section" id="contact">
     <!-- <img class="logo" src="images/user.jpg" alt="codeapp"> -->
     <h1>Contact</h1>
-    <form role="form">
+    <form role="form" ng-submit="send()">
       
       <div class="form-group">
         <label for="InputEmail">Your Email</label>
-        <input type="email" class="form-control" id="InputEmail" placeholder="Your Email">
+        <input type="email" class="form-control" id="InputEmail" placeholder="Your Email" ng-model="sender">
       </div>
       
       <div class="form-group">
         <label for="InputMessage">Message</label>
-        <textarea  class="form-control" id="InputMessage" placeholder="Message" rows="5"></textarea>
+        <textarea  class="form-control" id="InputMessage" placeholder="Message" rows="5" ng-model="text"></textarea>
       </div>
       <div class="form-group">
         <button type="submit" class="btn btn-info btn-lg btn-block"><span class="glyphicon glyphicon-send"></span></button>
       </div>
+
   </form>
     
 </div>

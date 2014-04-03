@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('initApp')
-  .controller('MainCtrl', function ($scope,$rootScope,$location,scroller) {
+  .controller('MainCtrl', function ($scope,$rootScope,$location,scroller,$http) {
     
 
     $scope.awesomeThings = [
@@ -45,9 +45,22 @@ angular.module('initApp')
         }
       }
     });
-
     $scope.scrollTo = function(hash) {
       scroller.scrollToElement(document.getElementById(hash), 30, 1500);
+    };
+    
+    $scope.send = function(){
+
+      var url = 'http://api.postmarkapp.com/email';
+      var data = {'From': $scope.sender, 'To': 'schmitzdenis@gmail.com', 'Subject': 'codeapp contact', 'HtmlBody': $scope.text} ;
+      var configObj = { headers : {'X-Postmark-Server-Token' : '2a479e67-d080-442b-9512-6451b8434689','Content-Type': 'application/json'} };
+
+      $http.post(url , data, configObj).success(function(){
+        console.log(arguments);
+      }). error(function(){
+        console.log(arguments);
+      });
+
     };
 
     var init = function () {

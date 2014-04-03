@@ -12,16 +12,14 @@ $tech-title-height : 35px ;
 $tech-border-color : $gray-dark ;
 $tech-border-radius : 3px;
 
-$section-color-darker : #201B2E;//#433C7E;
+$section-color-darker : #201B2E;
 $section-color-light : #8D79F2;
 $section-color-dark : #191A2A;
 $section-color-mid : #222B40;
 
 $section-color-yellow : #FAFFBD;
-
-
-
-
+$section-color-electric : #45a4ff;
+$section-color-night : #10253c;
 
 div.view-content{
 	@extend .container-fluid;
@@ -29,6 +27,8 @@ div.view-content{
 }
 div.section{
 	@extend .col-xs-12;
+	border-bottom : solid 2px $section-color-electric;
+	padding-bottom : 18px;
 }
 
 
@@ -96,8 +96,8 @@ div.tech-logo{
 
 
 #contact{
-	background:$section-color-darker ;
-	color : $section-color-light;
+	//background:$section-color-night ;
+	color : $section-color-electric ;
 }
 
 #footer{
