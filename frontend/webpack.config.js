@@ -1,6 +1,6 @@
 module.exports = {
   entry: {
-    javascript : './entry.js',
+    javascript : './entry.jsx',
     html: './index.html',
     cname: './CNAME'
   },
@@ -39,11 +39,13 @@ module.exports = {
       loaders: ['react-hot','babel-loader']
     }]
   },
+  /*
   externals: {
     //don't bundle the 'react' npm package with our bundle.js
     //but get it from a global 'React' variable
     'react': 'React'
   },
+  */
   devtool: 'eval-source-map',
   devServer: {
     //contentBase: "./build",
@@ -54,9 +56,9 @@ module.exports = {
     progress: true,
     watch: true,
     quiet: false,
-    //port:8080,
+    port:3000,
     //https:true,
-    //stats: { colors: true }
+    stats: { colors: true }
   },resolve: {
     extensions: ['', '.js', '.jsx']
   }
