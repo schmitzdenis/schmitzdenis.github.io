@@ -1,23 +1,42 @@
 module.exports = {
-  entry: './entry.js',
+  entry: {
+    javascript : './entry.js',
+    html: './index.html',
+    cname: './CNAME'
+  },
   output: {
-    path: __dirname,
+    path: __dirname +'/dist',
     filename: 'bundle.js'
   },
   module: {
     loaders: [{
+      test: /\.html$/,
+      exclude: /node_modules/,
+      loader: 'file?name=[name].[ext]'
+    },{
+      test: /\CNAME$/,
+      exclude: /node_modules/,
+      loader: 'file?name=[name]'
+    },{
       test: /\.css$/,
+      exclude: /node_modules/,
       loader: ['style', 'css'],
       query: {
         root: '.'
       }
     }, {
       test: /\.scss$/,
+      exclude: /node_modules/,
       loader: 'style!css!sass'
     }, {
       //tell webpack to use jsx-loader for all *.jsx files
       test: /\.jsx$/,
+      exclude: /node_modules/,
       loader: 'jsx-loader?insertPragma=React.DOM&harmony'
+    },{
+      test: /\.js$/,
+      exclude: /node_modules/,
+      loaders: ['react-hot','babel-loader']
     }]
   },
   externals: {
