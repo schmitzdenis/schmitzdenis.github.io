@@ -12,5 +12,5 @@ git status
 git push origin master -f
 
 git checkout develop
-get reset HEAD~1 --hard
+git reset HEAD~1 --hard
 git stash apply
