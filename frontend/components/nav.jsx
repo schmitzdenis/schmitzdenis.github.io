@@ -3,9 +3,9 @@ import React from 'react';
 class Nav extends React.Component {
   render() {
     return <ul className="nav-links">
-            <li><a href="#">About</a></li>
-            <li><a href="#">Techs</a></li>
-            <li><a href="#">Twitter</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#techs">Techs</a></li>
+            <li><a href="#tweets">Twitter</a></li>
           </ul>
   }
 }

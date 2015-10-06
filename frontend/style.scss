@@ -12,7 +12,7 @@ body {
   background-color: #3b2f63;
   background-image: linear-gradient(45deg, #3b2f63 0%,#7579f4 100%);
   color: #fff;
-  font-family: monospace;
+  //font-family: sans-serif;
 }
 
 nav.nav-bar {
@@ -25,15 +25,16 @@ nav.nav-bar {
   div.nav-container {
     @include container($app-max-width);
     .nav-logo {
-      float: left;
+      @include span(1 of 10);
       height: $nav-height;
-      width: 12rem;
+      width: 8rem;
       background-position-y: center;
       background-size: contain;
       background-repeat: no-repeat;
       background-image: url("images/codeapp.png");
     }
     .nav-links {
+      @include span(2 of 10 last);
       margin: 0;
       padding: 0;
       line-height: $nav-height;
