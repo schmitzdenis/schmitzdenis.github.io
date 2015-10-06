@@ -1,3 +1,15 @@
+// + copy images to the dist folder
+// + install fontawesome
+// + add sections
+// + add github, twitter links
+// ++Techs skills gallery
+// ++ load bg first then bundle
+// SEO rendr and demo!
+// ++ How to debug react ? SourceMap probably.
+// ++ create code source of the welcome component
+// +++ create unit testing output on btn press :)
+// +++ showcase an changelog embedable
+
 module.exports = {
   entry: {
     javascript : './entry.jsx',
