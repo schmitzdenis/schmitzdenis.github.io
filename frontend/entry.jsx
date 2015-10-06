@@ -1,5 +1,5 @@
-var React = require('react');
-var Hello = require('./components/hello');
-var css = require('./style.scss');
+import React from 'react';
+import Hello from './components/hello';
+import css from './style.scss';
 
-React.render(<Hello/>, document.getElementById('content') );
+React.render(<Hello/>, document.getElementById('content'));

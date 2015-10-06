@@ -18,23 +18,11 @@ module.exports = {
       exclude: /node_modules/,
       loader: 'file?name=[name]'
     },{
-      test: /\.css$/,
-      exclude: /node_modules/,
-      loader: ['style', 'css'],
-      query: {
-        root: '.'
-      }
-    }, {
       test: /\.scss$/,
       exclude: /node_modules/,
       loader: 'style!css!sass'
-    }, {
-      //tell webpack to use jsx-loader for all *.jsx files
-      test: /\.jsx$/,
-      exclude: /node_modules/,
-      loader: 'jsx-loader?insertPragma=React.DOM&harmony'
     },{
-      test: /\.js$/,
+      test: /\.jsx$/,
       exclude: /node_modules/,
       loaders: ['react-hot','babel-loader']
     }]
