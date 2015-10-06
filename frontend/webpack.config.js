@@ -14,6 +14,10 @@ module.exports = {
       exclude: /node_modules/,
       loader: 'file?name=[name].[ext]'
     },{
+      test: /\.png$/,
+      loader: 'url-loader',
+      query: { mimetype: 'image/png' }
+    },{
       test: /\CNAME$/,
       exclude: /node_modules/,
       loader: 'file?name=[name]'
