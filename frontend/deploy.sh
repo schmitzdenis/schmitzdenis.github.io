@@ -4,6 +4,7 @@ cd ..
 git add **dist/**
 git commit -m "new Deploy"
 git subtree split --prefix frontend/dist -b master
+git stash drop
 git stash
 
 git checkout master
