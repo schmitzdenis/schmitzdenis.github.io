@@ -2,24 +2,33 @@ import React from 'react';
 
 class Prompt extends React.Component {
 
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state = {txt:'prompt:codeapp$>'};
+    this.state = {
+      txt: 'Hello CodeApp!'
+    };
   }
 
-  update(event){
-    this.setState({'txt':event.target.value});
+  update(event) {
+    if(!event.target.value){
+      return this.setState({
+        'txt': 'Hello CodeApp!'
+      });
+    }
+    this.setState({
+      'txt': event.target.value
+    });
   }
 
   render() {
     return <div>
-            <h2>Email {this.state.txt}</h2>
-            <fieldset className="input-group">
-              <input type="text" placeholder="Email"></input>
-              <input type="text" placeholder="Subject" onChange={this.update.bind(this)}></input>
-              <textarea placeholder="Message Body" rows="20" ></textarea>
-            </fieldset>
-          </div>
+        <h1>{this.state.txt}</h1>
+        <fieldset className="input-group">
+          <input placeholder="Email" type="text"></input>
+          <input onChange={this.update.bind(this)} placeholder="Subject" type="text"></input>
+          <textarea placeholder="Message Body" rows="20"></textarea>
+        </fieldset>
+      </div>
   }
 }
 
