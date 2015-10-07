@@ -1,5 +1,16 @@
 
+
+
 @import "normalize";
+ul{
+  margin:0;
+  padding:0;
+  list-style-type: none;
+}
+fieldset {
+  padding: 0;
+  border: none;
+}
 @import "node_modules/susy/sass/susy";
 
 $susy : (
@@ -35,6 +46,7 @@ body {
 
 @import "components/nav";
 @import "components/form";
+@import "components/gallery";
 
 .content {
   //@include show-grid(8);
