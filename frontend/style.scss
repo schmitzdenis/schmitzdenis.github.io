@@ -2,9 +2,23 @@
 @import "normalize";
 @import "node_modules/susy/sass/susy";
 
+$susy : (
+  columns: 12,
+  //debug: (image: show)
+);
+
+$small-breakpoint:  640px;
+$medium-breakpoint: 1024px;
+$large-breakpoint:  1440px;
+$xlarge-breakpoint: 1920px;
+
 $app-max-width: 1000px;
+
 $nav-height: 3rem;
 
+html {
+  font-size: 16px;
+}
 
 body {
   margin: 0;
@@ -12,45 +26,17 @@ body {
   background-color: #3b2f63;
   background-image: linear-gradient(45deg, #3b2f63 0%,#7579f4 100%);
   color: #fff;
-  //font-family: sans-serif;
+  font-family: sans-serif;
+  font-weight: 100;
+  letter-spacing: 0.01em;
+  @include container;
+  @include show-grid(0);
 }
 
-nav.nav-bar {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: auto;
-  padding-bottom: 0.3rem;
-  border-bottom: solid 1px rgba(255, 255, 255, 0.4);
-  div.nav-container {
-    @include container($app-max-width);
-    .nav-logo {
-      @include span(1 of 10);
-      height: $nav-height;
-      width: 8rem;
-      background-position-y: center;
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-image: url("images/codeapp.png");
-    }
-    .nav-links {
-      @include span(2 of 10 last);
-      margin: 0;
-      padding: 0;
-      line-height: $nav-height;
-      li {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-        display: inline;
-        a {
-          padding-left: 1rem;
-        }
-      }
-    }
-  }
-}
+@import "components/nav";
+@import "components/form";
 
-#content {
+.content {
+  //@include show-grid(8);
   @include container($app-max-width);
 }

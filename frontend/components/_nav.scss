@@ -1,0 +1,44 @@
+nav.nav-bar {
+
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: auto;
+  padding-bottom: 0.3rem;
+  border-bottom: solid 1px rgba(255, 255, 255, 0.4);
+
+  div.nav-container {
+    @include container($app-max-width);
+
+    .nav-logo {
+      @include span(3);
+      height: $nav-height;
+      background-position-y: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-image: url("images/codeapp.png");
+    }
+
+    .nav-links {
+      margin: 0;
+      padding: 0;
+      line-height: $nav-height;
+      text-align:right;
+      @include last;
+      @media(max-width: $small-breakpoint){
+        display: none;
+      }
+      li {
+        margin: 0;
+        padding: 0 1rem;
+        list-style-type: none;
+        display: inline;
+        a {
+         text-decoration: none;
+         color: inherit;
+        }
+      }
+    }
+
+  }
+}
