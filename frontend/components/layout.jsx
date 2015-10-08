@@ -15,7 +15,6 @@ class Layout extends React.Component {
   openOffcanvas(){
     var status = (this.state.offcanvasStatus === 'closed')?'opened':'closed';
     this.setState({offcanvasStatus:status});
-    console.log('Open the GAtes !! ' + status);
   }
 
   render() {

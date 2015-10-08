@@ -18,7 +18,7 @@ $offcanvas-breakpoint-width : 10rem;
   left: -$offcanvas-breakpoint-width;
   top: 0;
   bottom: 0;
-  background-color: rgba(255,255,255,0.3);
+  background-color: rgba(0, 0, 0, 0.16);
   ul.nav-links {
 
     padding-left: 2rem;
@@ -35,7 +35,7 @@ $offcanvas-breakpoint-width : 10rem;
   .content {
     @include container($app-max-width);
     @include susy-media(max-width $app-max-width) {
-      padding: gutter();
+      padding: 0 gutter();
 
       //padding:0 1rem;
     }
@@ -48,7 +48,8 @@ nav.nav-bar {
   width: 100%;
   top: 0;
   left: auto;
-  border-bottom: solid 1px rgba(255, 255, 255, 0.4);
+  background-color: rgba(133, 18, 255, 0.95);
+  //border-bottom: solid 1px rgba(255, 255, 255, 0.4);
   div.nav-container {
     @include container($app-max-width);
     padding: 0.5rem 1rem;
