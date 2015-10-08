@@ -1,47 +1,90 @@
-nav.nav-bar {
+$offcanvas-breakpoint: $small-breakpoint;
+$offcanvas-breakpoint-width : 10rem;
 
+.crop{
+  overflow: hidden;
+}
+
+.wrap{
+  transition: transform 0.3s ease;
+  &.opened{
+    transform: translate3d($offcanvas-breakpoint-width, 0, 0);
+  }
+}
+
+.offcanvas {
+  position: absolute;
+  width: $offcanvas-breakpoint-width;
+  left: -$offcanvas-breakpoint-width;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(255,255,255,0.3);
+  ul.nav-links {
+
+    padding-left: 2rem;
+    li {
+      padding: 2rem 0;
+      a {
+        font-size: 1.3rem;
+      }
+    }
+  }
+}
+.canvas {
+  padding-top: $nav-height + 1rem;
+  .content {
+    @include container($app-max-width);
+    @include susy-media(max-width $app-max-width) {
+      padding: gutter();
+
+      //padding:0 1rem;
+    }
+  }
+}
+
+
+nav.nav-bar {
   position: fixed;
   width: 100%;
   top: 0;
   left: auto;
-  padding-bottom: 0.3rem;
   border-bottom: solid 1px rgba(255, 255, 255, 0.4);
-
   div.nav-container {
     @include container($app-max-width);
-    @include susy-media(max-width $app-max-width) {
-      padding:0 1rem;
-    }
-
-    .nav-logo {
-      @include span(3);
+    padding: 0.5rem 1rem;
+    .nav-logo,.nav-btn {
       height: $nav-height;
       background-position-y: center;
       background-size: contain;
       background-repeat: no-repeat;
-      background-image: url("images/codeapp.png");
     }
-
+    .nav-logo{
+      @include span(15rem);
+      background-image: url("images/codeapp.png");
+      @media(max-width: $offcanvas-breakpoint) {
+        display: none;
+      }
+    }
+    .nav-btn{
+      display: none;
+      background-image: url("images/codeapp-compact.png");
+      @include span(4rem);
+      @media(max-width: $offcanvas-breakpoint) {
+        display: block;
+      }
+    }
     .nav-links {
       margin: 0;
       padding: 0;
       line-height: $nav-height;
-      text-align:right;
       @include last;
-      @media(max-width: $small-breakpoint){
+      @media(max-width: $offcanvas-breakpoint) {
         display: none;
       }
       li {
-        margin: 0;
         padding: 0 1rem;
-        list-style-type: none;
         display: inline;
-        a {
-         text-decoration: none;
-         color: inherit;
-        }
       }
     }
-
   }
 }
