@@ -1,19 +1,20 @@
 .tech-gallery{
   overflow: hidden;
+  //@include clearfix;
   @include show-grid(12 );
   li{
     display: block;
     margin-bottom: gutter(12);
 
-    @media(min-width:$medium-breakpoint){
+    @include susy-media($medium-breakpoint) {
       @include gallery(3 of 12);
     }
 
-    @media(min-width: $small-breakpoint){
+    @include susy-media($small-breakpoint) {
       @include gallery(4 of 12);
     }
 
-    @media(max-width:500px){
+    @include susy-media(500px) {
       //@include gallery(12 of 12);
     }
   }

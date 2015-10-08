@@ -1,6 +1,3 @@
-
-
-
 @import "normalize";
 ul{
   margin:0;
@@ -13,19 +10,33 @@ fieldset {
 }
 @import "node_modules/susy/sass/susy";
 
-$susy : (
-  columns: 12,
-  //debug: (image: show)
-);
-
 $small-breakpoint:  640px;
 $medium-breakpoint: 1024px;
 $large-breakpoint:  1440px;
-$xlarge-breakpoint: 1920px;
-
 $app-max-width: 1000px;
-
 $nav-height: 3rem;
+
+$susy : (
+  columns: 12,
+  global-box-sizing: border-box,//content-box,
+  //debug: (image: show)
+);
+
+
+
+$susy-media: (
+  min: 20em,
+  max: 80em 60em,
+  string: 'screen and (orientation: landscape)',
+  pair: min-height 40em,
+  map: (
+    media: screen,
+    max-width: 30em
+  ),
+);
+
+
+
 
 html {
   font-size: 16px;
@@ -40,8 +51,6 @@ body {
   font-family: sans-serif;
   font-weight: 100;
   letter-spacing: 0.01em;
-  @include container;
-  @include show-grid(0);
 }
 
 @import "components/nav";
@@ -51,4 +60,10 @@ body {
 .content {
   //@include show-grid(8);
   @include container($app-max-width);
+  @include susy-media(max-width $app-max-width) {
+    padding:0 1rem;
+  }
+}
+section p{
+  padding-left: 0.5rem;
 }

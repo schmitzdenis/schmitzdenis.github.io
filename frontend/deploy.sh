@@ -1,4 +1,5 @@
 npm run build
+cp -r images/favicons dist/images/favicons
 git branch -D master
 cd ..
 git add **dist/**

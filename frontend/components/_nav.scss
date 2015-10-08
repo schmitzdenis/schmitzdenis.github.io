@@ -9,6 +9,9 @@ nav.nav-bar {
 
   div.nav-container {
     @include container($app-max-width);
+    @include susy-media(max-width $app-max-width) {
+      padding:0 1rem;
+    }
 
     .nav-logo {
       @include span(3);
