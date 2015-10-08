@@ -2,7 +2,11 @@ import React from 'react';
 
 class Tech extends React.Component {
   render() {
-    return <div>{this.props.data.name} {this.props.data.description}</div>
+    return <div className="tech">
+            <h3>{this.props.data.name}</h3>
+            <p>{this.props.data.description}</p>
+            <div className="image" style={{backgroundImage: this.props.data.image}}></div>
+          </div>
   }
 }
 

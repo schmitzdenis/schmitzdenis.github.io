@@ -31,8 +31,6 @@ $susy : (
   //debug: (image: show)
 );
 
-
-
 $susy-media: (
   min: 20em,
   max: 80em 60em,
@@ -43,9 +41,6 @@ $susy-media: (
     max-width: 30em
   ),
 );
-
-
-
 
 html {
   font-size: 16px;
@@ -65,7 +60,11 @@ body {
 @import "components/nav";
 @import "components/form";
 @import "components/gallery";
+@import "components/tech";
 
 section p{
   padding-left: 0.5rem;
+}
+::placeholder{
+  color:#fff;
 }
