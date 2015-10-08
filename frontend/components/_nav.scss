@@ -49,7 +49,7 @@ nav.nav-bar {
   top: 0;
   left: auto;
   background-color: rgba(133, 18, 255, 0.95);
-  //border-bottom: solid 1px rgba(255, 255, 255, 0.4);
+  border-bottom: solid 1px rgba(255, 255, 255, 0.4);
   div.nav-container {
     @include container($app-max-width);
     padding: 0.5rem 1rem;
