@@ -27,6 +27,9 @@
     //transform: rotateY( 180deg );
   }
   .front {
+    z-index: 2;//old firefox
+    transform: rotate3d(0,1,0,0deg) translate3D(0,0,1px);
+    background-color: #fff; //#222;
     .image {
       height: 100%;
       padding: 1rem;
@@ -37,15 +40,12 @@
       background-position: center center;
     //  height: 100%;
     }
-    transform: rotate3d(0,1,0,0deg);
-    background-color: #fff; //#222;
+
   }
   .back {
 
-    //z-index: 1;
-    //transform: rotateY( 180deg );
-
-    transform: rotate3d(0,1,0,180deg);
+    z-index: 1;//old firefox
+    transform: rotate3d(0,1,0,180deg) translate3D(0,0,0px);//Safari squash the z-index in 3D space so we need the translateZ
     color: #000;
     background-color: #fff;
     .title {

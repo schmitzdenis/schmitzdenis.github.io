@@ -3,7 +3,7 @@ import Nav from './nav/component';
 import About from './about/component';
 import Gallery from './gallery/component';
 import Contact from './Contact/component';
-import Offcanvas from './offcanvas';
+import Offcanvas from './offcanvas/component';
 
 class Layout extends React.Component {
 
