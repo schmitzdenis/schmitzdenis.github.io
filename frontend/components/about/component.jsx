@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Hello extends React.Component {
+class About extends React.Component {
   render() {
     return<div>
       <h1>Hello World !</h1>
@@ -20,4 +20,4 @@ class Hello extends React.Component {
   }
 }
 
-module.exports = Hello;
+module.exports = About;

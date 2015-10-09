@@ -58,10 +58,10 @@ body {
   letter-spacing: 0.01em;
 }
 
-@import "components/nav";
-@import "components/form";
-@import "components/gallery";
-@import "components/tech";
+@import "nav/styles";
+@import "form";
+@import "gallery/styles";
+@import "tech/styles";
 
 section p{
   padding-left: 0.5rem;

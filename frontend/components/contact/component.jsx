@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Prompt extends React.Component {
+class Contact extends React.Component {
 
   constructor(props) {
     super(props);
@@ -32,4 +32,4 @@ class Prompt extends React.Component {
   }
 }
 
-module.exports = Prompt;
+module.exports = Contact;

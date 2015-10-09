@@ -1,8 +1,8 @@
 import React from 'react';
-import Nav from './nav';
-import Hello from './hello';
-import Gallery from './gallery';
-import Prompt from './prompt';
+import Nav from './nav/component';
+import About from './about/component';
+import Gallery from './gallery/component';
+import Contact from './Contact/component';
 import Offcanvas from './offcanvas';
 
 class Layout extends React.Component {
@@ -31,14 +31,14 @@ class Layout extends React.Component {
         </nav>
         <div className="content">
           <section>
-            <Hello />
+            <About />
           </section>
           <section>
             <h1>Techs</h1>
             <Gallery />
           </section>
           <section>
-            <Prompt/>
+            <Contact/>
           </section>
         </div>
       </div>

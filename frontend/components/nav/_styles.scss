@@ -34,11 +34,8 @@ $offcanvas-breakpoint-width : 10rem;
   padding-top: $nav-height + 1rem;
   .content {
     @include container($app-max-width);
-    @include susy-media(max-width $app-max-width) {
-      padding: 0 gutter();
+    padding: gutter();
 
-      //padding:0 1rem;
-    }
   }
 }
 
@@ -64,14 +61,14 @@ nav.nav-bar {
     }
     .nav-logo{
       @include span(15rem);
-      background-image: url("images/codeapp.png");
+      background-image: url("/images/codeapp.png");
       @media(max-width: $offcanvas-breakpoint) {
         display: none;
       }
     }
     .nav-btn{
       display: none;
-      background-image: url("images/codeapp-compact.png");
+      background-image: url("/images/codeapp-compact.png");
       @include span(4rem);
       @media(max-width: $offcanvas-breakpoint) {
         display: block;
