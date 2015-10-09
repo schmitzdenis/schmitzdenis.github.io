@@ -1,5 +1,5 @@
 npm run build
-mkdir -p ./dist/images/favicons && cp -r images/favicons/* $_
+mkdir -p ./dist/images && cp -r images/* $_
 ls ./dist
 git branch -D master
 cd ..
