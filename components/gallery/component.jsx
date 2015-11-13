@@ -1,5 +1,5 @@
 import React from 'react';
-import Tech from '../tech/component';
+import Tech from '../tech/component.jsx';
 
 
 class Gallery extends React.Component {

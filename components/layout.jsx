@@ -1,9 +1,9 @@
 import React from 'react';
-import Nav from './nav/component';
-import About from './about/component';
-import Gallery from './gallery/component';
-import Contact from './Contact/component';
-import Offcanvas from './offcanvas/component';
+import Nav from './nav/component.jsx';
+import About from './about/component.jsx';
+import Gallery from './gallery/component.jsx';
+import Contact from './contact/component.jsx';
+import Offcanvas from './offcanvas/component.jsx';
 
 class Layout extends React.Component {
 
