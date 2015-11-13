@@ -9,15 +9,16 @@
 // ++ create code source of the welcome component
 // +++ create unit testing output on btn press :)
 // +++ showcase an changelog embedable
+var path = require('path');
 
 module.exports = {
   entry: {
-    javascript : __dirname +'/entry.jsx',
-    html: __dirname +'/index.html',
-    cname: __dirname +'/CNAME'
+    javascript : path.join(__dirname, 'entry.jsx'),
+    html: path.join(__dirname, 'index.html'),
+    cname: path.join(__dirname ,'CNAME')
   },
   output: {
-    path: __dirname +'/dist/',
+    path: path.resolve(__dirname ,'dist'),
     filename: 'bundle.js'
   },
   module: {
@@ -50,6 +51,7 @@ module.exports = {
     'react': 'React'
   },
   */
+  debug:true,
   devtool: 'eval-source-map',
   devServer: {
     //contentBase: "./build",
