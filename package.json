@@ -7,7 +7,8 @@
   "description": "code related toughts and skills description",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --hot --inline",
+    "postinstall": "webpack",
+	"dev": "webpack-dev-server --hot --inline",
     "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
