@@ -1,0 +1,21 @@
+.tech-gallery{
+  overflow: hidden;
+  //@include clearfix;
+  @include show-grid(12 );
+  li{
+    display: block;
+    margin-bottom: gutter(12);
+
+    @include susy-media($medium-breakpoint) {
+      @include gallery(3 of 12);
+    }
+
+    @include susy-media($small-breakpoint) {
+      @include gallery(4 of 12);
+    }
+
+    @include susy-media(500px) {
+      //@include gallery(12 of 12);
+    }
+  }
+}

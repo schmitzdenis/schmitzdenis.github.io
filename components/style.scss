@@ -1,0 +1,75 @@
+@import "normalize";
+
+ul{
+  margin:0;
+  padding:0;
+  li {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: block;
+  }
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+fieldset {
+  padding: 0;
+  border: none;
+}
+
+@import "node_modules/susy/sass/susy";
+@import "typo";
+
+$small-breakpoint:  640px;
+$medium-breakpoint: 1024px;
+$large-breakpoint:  1440px;
+$app-max-width: 1000px;
+$nav-height: 3rem;
+
+$susy : (
+  columns: 12,
+  global-box-sizing: border-box,//content-box,
+  //debug: (image: show)
+);
+
+$susy-media: (
+  min: 20em,
+  max: 80em 60em,
+  string: 'screen and (orientation: landscape)',
+  pair: min-height 40em,
+  map: (
+    media: screen,
+    max-width: 30em
+  ),
+);
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  background-color: #3b2f63;
+  background-image: linear-gradient(#2B243C 0%, #2E1E5D 100%);
+
+  color: #fff;
+
+  font-family: sans-serif;
+  font-weight: 100;
+  letter-spacing: 0.01em;
+}
+
+@import "nav/styles";
+@import "offcanvas/styles";
+@import "form";
+@import "gallery/styles";
+@import "tech/styles";
+
+section p{
+  padding-left: 0.5rem;
+}
+::placeholder{
+  color:#fff;
+}
