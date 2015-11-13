@@ -2,7 +2,8 @@
   "name": "codeapp",
   "version": "0.0.4",
   "engines": {
-    "node": "4.1.1"
+    "node": "5.0.0"
+"npm":"3.4.0"	
   },
   "description": "code related toughts and skills description",
   "main": "index.js",
