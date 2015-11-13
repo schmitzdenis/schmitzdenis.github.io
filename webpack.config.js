@@ -3,8 +3,8 @@ var path = require('path');
 module.exports = {
   entry: {
     javascript : path.join(__dirname, 'entry.jsx'),
-    html: path.join(__dirname, 'index.html'),
-    cname: path.join(__dirname ,'CNAME')
+    html: path.join(__dirname, 'index.html')
+    /*cname: path.join(__dirname ,'CNAME')*/
   },
   output: {
     path: path.resolve(__dirname ,'dist'),
