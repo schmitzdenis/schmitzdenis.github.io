@@ -12,9 +12,9 @@
 
 module.exports = {
   entry: {
-    javascript : './entry.jsx',
-    html: './index.html',
-    cname: './CNAME'
+    javascript : __dirname +'/entry.jsx',
+    html: __dirname +'/index.html',
+    cname: __dirname +'/CNAME'
   },
   output: {
     path: __dirname +'/dist',
