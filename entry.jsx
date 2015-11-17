@@ -1,5 +1,5 @@
 require("file?name=[name].[ext]!./index.html");
-require("file?name=[name]!./CNAME");
+require("file?name=[name]!./CNAME.tpl");
 
 import React from 'react';
 import Layout from './components/layout.jsx';
