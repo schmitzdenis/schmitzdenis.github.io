@@ -19,24 +19,18 @@ var config = {
   },
   module: {
     loaders: [{
-      test: /\.png$/,
-      loader: 'url-loader',
-      query: {
-        mimetype: 'image/png'
-      }
-    }, {
+        test: /\.(png|svg)$/,
+        loader: 'file',
+        query: {
+          name: '[path][name].[ext]'
+        }
+    },{
       test: /\.scss$/,
-      exclude: /node_modules/,
-      loader: 'style!css!sass'
+      loader: 'style-loader!css-loader!sass'
     }, {
       test: /\.jsx$/,
-      exclude: /node_modules/,
       loaders: ['react-hot', 'babel-loader']
-    }],
-    noParse: [
-      'index.html',
-      'CNAME'
-    ],
+    }]
   },
 
   /*
