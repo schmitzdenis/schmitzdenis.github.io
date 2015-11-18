@@ -7,8 +7,6 @@ var config = {
   },
   entry: {
     javascript: path.join(__dirname, 'entry.jsx'),
-    //html: path.join(__dirname, 'index.html')
-      /*cname: path.join(__dirname ,'CNAME')*/
   },
   resolve: {
     extensions: ['', '.js', '.jsx']
@@ -26,10 +24,10 @@ var config = {
         }
     },{
       test: /\.scss$/,
-      loader: 'style-loader!css-loader!sass'
+      loaders: ['style','css?root=..','sass?sourceMap']
     }, {
       test: /\.jsx$/,
-      loaders: ['react-hot', 'babel-loader']
+      loaders: ['react-hot', 'babel-loader?sourceMap']
     }]
   },
 
