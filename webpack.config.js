@@ -18,15 +18,18 @@ var config = {
   module: {
     loaders: [{
         test: /\.(png|svg)$/,
+        exclude: ['node_modules'],
         loader: 'file',
         query: {
           name: '[path][name].[ext]'
         }
     },{
       test: /\.scss$/,
+      exclude: ['node_modules'],
       loaders: ['style','css?root=..','sass?sourceMap']
     }, {
       test: /\.jsx$/,
+      exclude: ['node_modules'],
       loaders: ['react-hot', 'babel-loader?sourceMap']
     }]
   },
