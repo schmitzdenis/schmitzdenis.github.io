@@ -1,6 +1,4 @@
 var path = require('path');
-//var pathToReact = path.resolve('node_modules/react/dist/react.min.js');
-
 var config = {
   addVendor: function(name, path) {
     this.resolve.alias[name] = path;
@@ -8,15 +6,10 @@ var config = {
   },
   entry: {
     bundle: path.join(__dirname, 'entry.jsx'),
-    vendors:['react']
+    vendors: ['react']
   },
   resolve: {
-    extensions: ['', '.js', '.jsx'],
-  /*
-    alias: {
-         'react': pathToReact
-    }
-    */
+    extensions: ['', '.js', '.jsx']
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -24,33 +17,37 @@ var config = {
   },
   module: {
     loaders: [{
-        test: /\.(png|svg)$/,
-        loader: 'file',
-        query: {
-          name: '[path][name].[ext]'
-        }
+      test: /\.(png|svg)$/,
+      loader: 'file',
+      query: {
+        name: '[path][name].[ext]'
+      }
     },{
       test: /\.scss$/,
-      loaders: ['style','css?root=..','sass?sourceMap']
-    },{
+      loaders: ['style', 'css?root=..', 'sass?sourceMap=true']
+    }, {
       test: /\.jsx$/,
-      loaders: ['react-hot', 'babel-loader?sourceMap']
-    }]
-    //noParse: [pathToReact]
+      loaders: ['react-hot', 'babel-loader']
+    }],
+    noParse: []
   },
 
   debug: true,
   devtool: 'eval-source-map',
   devServer: {
     noInfo: true, //  --no-info option
-    hot: true,
-    inline: true,
     progress: true,
     watch: true,
     quiet: false,
     port: 3000,
     stats: {
       colors: true
+    },
+    proxy: {
+      '/api/*': {
+        target: 'https://codeapp.heroku.com',
+        secure: true,
+      },
     }
   }
 };
