@@ -4,12 +4,14 @@ import About from './about/component.jsx';
 import Gallery from './gallery/component.jsx';
 import Contact from './contact/component.jsx';
 import Offcanvas from './offcanvas/component.jsx';
+import ReleaseList from './release-list/component';
 
 class Layout extends React.Component {
 
   constructor(props){
     super(props);
     this.state = {offcanvasStatus:'closed'}
+    this.openOffcanvas = this.openOffcanvas.bind(this);
   }
 
   openOffcanvas(){
@@ -24,7 +26,7 @@ class Layout extends React.Component {
       <div className="canvas">
         <nav className="nav-bar">
           <div className="nav-container">
-            <a className="nav-btn" onClick={this.openOffcanvas.bind(this)}></a>
+            <a className="nav-btn" onClick={this.openOffcanvas}></a>
             <div className="nav-logo"></div>
             <Nav/>
           </div>
@@ -39,6 +41,9 @@ class Layout extends React.Component {
           </section>
           <section>
             <Contact/>
+          </section>
+          <section>
+            <ReleaseList name="react"/>
           </section>
         </div>
       </div>

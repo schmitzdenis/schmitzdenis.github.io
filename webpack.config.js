@@ -1,12 +1,12 @@
-var path = require('path');
+'use strict';
+
+let path = require('path');
+let webpack = require('webpack');
+
 var config = {
-  addVendor: function(name, path) {
-    this.resolve.alias[name] = path;
-    this.module.noParse.push(new RegExp(path));
-  },
   entry: {
     bundle: path.join(__dirname, 'entry.jsx'),
-    vendors: ['react']
+    vendors: ['react', 'jquery', 'foundation-sites', 'moment']
   },
   resolve: {
     extensions: ['', '.js', '.jsx']
@@ -22,24 +22,34 @@ var config = {
       query: {
         name: '[path][name].[ext]'
       }
-    },{
+    }, {
       test: /\.scss$/,
       loaders: ['style', 'css?root=..', 'sass?sourceMap=true']
     }, {
-      test: /\.jsx$/,
-      loaders: ['react-hot', 'babel-loader']
+      test: /\.(js|jsx)$/,
+      loaders: ['react-hot', 'babel-loader'],
+      exclude: /node_modules/
     }],
     noParse: []
   },
-
-  debug: true,
-  devtool: 'eval-source-map',
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery",
+      "window.jQuery": "jquery"
+    })
+  ],
   devServer: {
     noInfo: true, //  --no-info option
     progress: true,
+    colors: true,
     watch: true,
     quiet: false,
     port: 3000,
+    hot: true,
+    inline: true,
+    historyApiFallback: true,
     stats: {
       colors: true
     },
@@ -49,7 +59,9 @@ var config = {
         secure: true,
       },
     }
-  }
+  },
+  devtool: 'eval-source-map',
+  debug: true,
 };
 
 module.exports = config;
