@@ -27,7 +27,7 @@ var config = {
       loaders: ['style','css?root=..','sass']
     }, {
       test: /\.jsx$/,
-      loaders: ['babel-loader'],
+      loader: 'babel-loader',
       exclude: /node_modules/,
       query: {
         presets: ['es2015','react']
