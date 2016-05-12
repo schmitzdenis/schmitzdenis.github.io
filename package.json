@@ -11,6 +11,9 @@
     "build": "NODE_ENV=production webpack -p --config webpack-prod.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "babel": {
+    "presets": ["react","es2015"]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/schmitzdenis/schmitzdenis.github.io.git"

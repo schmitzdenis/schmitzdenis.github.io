@@ -28,14 +28,7 @@ var config = {
     },{
       test: /\.(js|jsx)$/,
       exclude: /node_modules/,
-      loader: 'react-hot'
-    },{
-      test: /\.(js|jsx)$/,
-      exclude: /node_modules/,
-      loader: 'babel-loader',
-      query: {
-        presets: ['es2015','react']
-      }
+      loaders: ['react-hot','babel-loader']
     }],
     noParse: []
   },
