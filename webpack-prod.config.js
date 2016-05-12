@@ -1,12 +1,12 @@
 var path = require('path');
-//var webpack = require('webpack');
+var webpack = require('webpack');
 var CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin");
 var node_modules_dir = path.resolve(__dirname, 'node_modules');
 
 var config = {
   entry: {
     bundle: path.join(__dirname, 'entry.jsx'),
-    vendors: ['react']
+    vendors: ['react', 'jquery', 'foundation-sites', 'moment']
   },
   resolve: {
     extensions: ['', '.js', '.jsx'],
@@ -27,10 +27,16 @@ var config = {
       loaders: ['style','css?root=..','sass']
     }, {
       test: /\.jsx$/,
-      loaders: ['babel-loader']
+      loaders: ['babel-loader'],
+      exclude: /node_modules/
     }],
     plugins: [
-      new CommonsChunkPlugin('vendors.js')
+      new CommonsChunkPlugin('vendors.js'),
+      new webpack.ProvidePlugin({
+        $: "jquery",
+        jQuery: "jquery",
+        "window.jQuery": "jquery"
+      })
     ]
   }
 };
