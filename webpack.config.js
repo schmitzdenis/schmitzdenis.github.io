@@ -22,13 +22,20 @@ var config = {
       query: {
         name: '[path][name].[ext]'
       }
-    }, {
+    },{
       test: /\.scss$/,
       loaders: ['style', 'css?root=..', 'sass?sourceMap=true']
-    }, {
+    },{
       test: /\.(js|jsx)$/,
-      loaders: ['react-hot', 'babel-loader'],
-      exclude: /node_modules/
+      exclude: /node_modules/,
+      loader: 'react-hot'
+    },{
+      test: /\.(js|jsx)$/,
+      exclude: /node_modules/,
+      loader: 'babel-loader',
+      query: {
+        presets: ['es2015','react']
+      }
     }],
     noParse: []
   },

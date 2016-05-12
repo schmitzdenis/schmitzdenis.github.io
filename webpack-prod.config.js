@@ -28,7 +28,10 @@ var config = {
     }, {
       test: /\.jsx$/,
       loaders: ['babel-loader'],
-      exclude: /node_modules/
+      exclude: /node_modules/,
+      query: {
+        presets: ['es2015','react']
+      }
     }],
     plugins: [
       new CommonsChunkPlugin('vendors.js'),
