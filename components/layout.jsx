@@ -18,7 +18,7 @@ class Layout extends React.Component {
     var status = (this.state.offcanvasStatus === 'closed')?'opened':'closed';
     this.setState({offcanvasStatus:status});
   }
-
+  
   render() {
     return <div  className="crop" >
     <div className={'wrap ' + this.state.offcanvasStatus}>

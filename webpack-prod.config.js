@@ -16,40 +16,35 @@ var config = {
   },
   module: {
     loaders: [{
-      test: /\.(png|svg)$/,
-      loader: 'file',
-      query: {
-        name: '[path][name].[ext]'
-      }
-    }, {
       test: /\.scss$/,
-      loaders: ['style', 'css?root=..', 'sass']
+      loaders: ['style', 'css?sourceMap&root=..', 'sass?sourceMap'],
     }, {
-      test: /\.(js|jsx)$/,
-      exclude: /node_modules/,
+      test: /\.jsx$/,
       loader: 'babel'
     }]
   },
+  sassLoader: {
+    includePaths: [path.resolve(__dirname, "./node_modules/foundation-sites/scss")]
+  },
   plugins: [
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.UglifyJsPlugin(), //--optimize-minimize
+    new webpack.optimize.OccurenceOrderPlugin(), // --optimize-occurence-order
+    new webpack.optimize.AggressiveMergingPlugin(),
+    new webpack.NoErrorsPlugin(),
     new webpack.ProvidePlugin({
       $: "jquery",
       jQuery: "jquery",
       "window.jQuery": "jquery"
     }),
-    new webpack.optimize.DedupePlugin(),
     new webpack.DefinePlugin({
       'process.env': {
         'NODE_ENV': JSON.stringify('production')
       }
-    }),
-    new webpack.optimize.UglifyJsPlugin(),
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.optimize.AggressiveMergingPlugin(),
-    new webpack.NoErrorsPlugin()
+    })
   ],
   devServer: {
-    noInfo: true, //  --no-info option
-    progress: true,
+    noInfo: true,
     colors: true,
     watch: true,
     quiet: false,
@@ -67,8 +62,8 @@ var config = {
       },
     }
   },
-  devtool: 'eval-source-map',
-  debug: true,
+  //devtool: 'eval-source-map',
+  debug: false,
 };
 
 module.exports = config;

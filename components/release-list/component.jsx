@@ -1,11 +1,8 @@
 'use strict';
-
-import React from 'react';
 import jQuery from 'jquery';
 import Foundation from 'foundation-sites';
+import React from 'react';
 import Release from '../release/component';
-
-$(document).foundation();
 
 class ReleaseList extends React.Component {
 
@@ -15,18 +12,27 @@ class ReleaseList extends React.Component {
     let repo = 'react'
     this.apiUrl = `https://api.github.com/repos/${owner}/${repo}/releases`;
     this.state = {
-      releases: []
+      releases: [],
+      activeKey: null
     }
   }
 
-  _parseReleases(results) {
-    return results.map((item) => <Release key={item.tag_name} infos={item}/>);
+  _isActive(id) {
+    return (id === this.state.activeKey);
   }
 
+  _parseReleases(results) {
+    return results.map((item) => <Release key={item.tag_name} infos={item} isActive={this._isActive(item.tag_name)}/>);
+  }
+  componentDidUpdate(){
+    $('#releases').foundation();
+  }
   render() {
-    return <div>
+    return <div id="releases">
       <h1>React releases</h1>
-      {this.state.releases}
+      <ul className="accordion" data-accordion>
+        {this.state.releases}
+      </ul>
     </div>
   }
 
@@ -34,6 +40,7 @@ class ReleaseList extends React.Component {
     this.serverRequest = $.get(this.apiUrl, (results) => {
       let list = this._parseReleases(results);
       this.setState({releases: list});
+      this.setState({activeKey: results[0].tag_name});
     });
   }
 
