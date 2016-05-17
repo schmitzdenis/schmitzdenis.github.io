@@ -1,15 +1,13 @@
-'use strict';
-
-let path = require('path');
-let webpack = require('webpack');
+var path = require('path');
+var webpack = require('webpack');
+var env = process.env.WEBPACK_ENV;
 
 var config = {
   entry: {
     bundle: path.join(__dirname, 'entry.jsx')
-    //vendors: ['react', 'jquery', 'foundation-sites', 'moment']
   },
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx'],
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -17,23 +15,23 @@ var config = {
   },
   module: {
     loaders: [{
-      test: /\.(png|svg)$/,
-      loader: 'file',
-      query: {
-        name: '[path][name].[ext]'
-      }
-    },{
       test: /\.scss$/,
-      loaders: ['style', 'css?root=..', 'sass?sourceMap=true']
-    },{
-      test: /\.(js|jsx)$/,
-      exclude: /node_modules/,
-      loaders: ['react-hot','babel-loader']
-    }],
-    noParse: []
+      loaders: ['style', 'css?sourceMap&root=..', 'sass?sourceMap'],
+    }, {
+      test: /\.jsx$/,
+      loader: 'babel'
+    }, {
+      test: /\.(png|jpg|gif|woff|woff2)$/,
+      loader: 'url-loader?limit=8192'
+    }, {
+      test: /\.(mp4|ogg|svg)$/,
+      loader: 'file-loader'
+    }]
+  },
+  sassLoader: {
+    includePaths: [path.resolve(__dirname, "./node_modules/foundation-sites/scss")]
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
     new webpack.ProvidePlugin({
       $: "jquery",
       jQuery: "jquery",
@@ -41,8 +39,7 @@ var config = {
     })
   ],
   devServer: {
-    noInfo: true, //  --no-info option
-    progress: true,
+    noInfo: true,
     colors: true,
     watch: true,
     quiet: false,
@@ -61,7 +58,26 @@ var config = {
     }
   },
   devtool: 'eval-source-map',
-  debug: true,
+  debug: false,
 };
+
+if (env === 'production') {
+  config.plugins = [...config.plugins,
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      minimize: true
+    }),
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.AggressiveMergingPlugin(),
+    new webpack.NoErrorsPlugin(),
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
+      }
+    })
+  ];
+  config.devtool = false;
+  config.debug = false;
+}
 
 module.exports = config;

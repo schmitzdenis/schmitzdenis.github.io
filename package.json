@@ -7,10 +7,10 @@
   "description": "code related toughts and skills description",
   "main": "index.js",
   "scripts": {
-    "copy": "copyfiles -f ./index.html ./CNAME 'images/*.png' 'images/favicons/*.png' 'images/techs/*.svg' ./dist",
+    "copy": "copyfiles ./index.html ./CNAME 'images/**/*' ./dist",
     "dev": "webpack-dev-server --hot --inline",
-    "prod": "npm run copy & webpack-dev-server --config webpack-prod.config.js --inline --progress --hot",
-    "build": "npm run copy & webpack --config webpack-prod.config.js --progress --display-modules --display-chunks",
+    "prod": "WEBPACK_ENV=production npm run copy & webpack-dev-server --inline --progress --hot",
+    "build": "npm run copy & WEBPACK_ENV=production webpack --progress --display-modules --display-chunks",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "babel": {
