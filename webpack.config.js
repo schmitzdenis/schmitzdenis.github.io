@@ -5,8 +5,8 @@ let webpack = require('webpack');
 
 var config = {
   entry: {
-    bundle: path.join(__dirname, 'entry.jsx'),
-    vendors: ['react', 'jquery', 'foundation-sites', 'moment']
+    bundle: path.join(__dirname, 'entry.jsx')
+    //vendors: ['react', 'jquery', 'foundation-sites', 'moment']
   },
   resolve: {
     extensions: ['', '.js', '.jsx']

@@ -1,12 +1,11 @@
 var path = require('path');
 var webpack = require('webpack');
-var CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin");
-var node_modules_dir = path.resolve(__dirname, 'node_modules');
+
+process.env.NODE_ENV = 'production';
 
 var config = {
   entry: {
-    bundle: path.join(__dirname, 'entry.jsx'),
-    vendors: ['react', 'jquery', 'foundation-sites', 'moment']
+    bundle: path.join(__dirname, 'entry.jsx')
   },
   resolve: {
     extensions: ['', '.js', '.jsx'],
@@ -17,28 +16,59 @@ var config = {
   },
   module: {
     loaders: [{
-        test: /\.(png|svg)$/,
-        loader: 'file',
-        query: {
-          name: '[path][name].[ext]'
-        }
-    },{
-      test: /\.scss$/,
-      loaders: ['style','css?root=..','sass']
+      test: /\.(png|svg)$/,
+      loader: 'file',
+      query: {
+        name: '[path][name].[ext]'
+      }
     }, {
-      test: /\.jsx$/,
-      loader: 'babel-loader',
-      exclude: /node_modules/
-    }],
-    plugins: [
-      new CommonsChunkPlugin('vendors.js'),
-      new webpack.ProvidePlugin({
-        $: "jquery",
-        jQuery: "jquery",
-        "window.jQuery": "jquery"
-      })
-    ]
-  }
+      test: /\.scss$/,
+      loaders: ['style', 'css?root=..', 'sass']
+    }, {
+      test: /\.(js|jsx)$/,
+      exclude: /node_modules/,
+      loader: 'babel'
+    }]
+  },
+  plugins: [
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery",
+      "window.jQuery": "jquery"
+    }),
+    new webpack.optimize.DedupePlugin(),
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
+      }
+    }),
+    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.AggressiveMergingPlugin(),
+    new webpack.NoErrorsPlugin()
+  ],
+  devServer: {
+    noInfo: true, //  --no-info option
+    progress: true,
+    colors: true,
+    watch: true,
+    quiet: false,
+    port: 3000,
+    hot: true,
+    inline: true,
+    historyApiFallback: true,
+    stats: {
+      colors: true
+    },
+    proxy: {
+      '/api/*': {
+        target: 'https://codeapp.heroku.com',
+        secure: true,
+      },
+    }
+  },
+  devtool: 'eval-source-map',
+  debug: true,
 };
 
 module.exports = config;
