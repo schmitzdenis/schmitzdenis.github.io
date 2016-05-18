@@ -12,35 +12,43 @@ class ReleaseList extends React.Component {
     let repo = 'react'
     this.apiUrl = `https://api.github.com/repos/${owner}/${repo}/releases`;
     this.state = {
-      releases: [],
-      activeKey: null
+      releases: []
     }
   }
 
-  _isActive(id) {
-    return (id === this.state.activeKey);
+  _setActive(id){
+    var updatedReleases = this.state.releases.map((item)=> {
+      item.isActive = (item.tag_name === id)?true:false;
+      return item;
+    });
+    this.setState({releases:updatedReleases});
   }
 
-  _parseReleases(results) {
-    return results.map((item) => <Release key={item.tag_name} infos={item} isActive={this._isActive(item.tag_name)}/>);
+  _getListComponents(items) {
+    return items.map((item) => <Release key={item.tag_name}
+    infos={item}
+    setActive={this._setActive.bind(this)}
+    isActive = {item.isActive||false}
+    />);
   }
-  componentDidUpdate(){
-    $('#releases').foundation();
+  componentDidUpdate() {
+    //$('#releases').foundation();
+    $(this.compEl).foundation();
+
   }
   render() {
-    return <div id="releases">
+    let releasesComponents = this._getListComponents(this.state.releases);
+    return <div id="releases" class="release_list_component" ref={(compEl) => this.compEl = compEl}>
       <h1>React releases</h1>
-      <ul className="accordion" data-accordion>
-        {this.state.releases}
+      <ul>
+        {releasesComponents}
       </ul>
     </div>
   }
 
   componentDidMount() {
     this.serverRequest = $.get(this.apiUrl, (results) => {
-      let list = this._parseReleases(results);
-      this.setState({releases: list});
-      this.setState({activeKey: results[0].tag_name});
+      this.setState({releases: results});
     });
   }
 

@@ -1,6 +1,19 @@
 .release_component{
   color: black;
+  margin-top:3rem;
+  background: white;
+  border-radius: 4px;
   .name{
     color: gray;
+  }
+  .release_content{
+    visibility: hidden;
+    height: 0;
+  }
+  &.active{
+    .release_content{
+      height: inherit;
+      visibility:visible;
+    }
   }
 }

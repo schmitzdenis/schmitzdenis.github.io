@@ -4,7 +4,7 @@ var env = process.env.WEBPACK_ENV;
 
 var config = {
   entry: {
-    bundle: path.join(__dirname, 'entry.jsx')
+    bundle: [path.join(__dirname, 'entry.jsx')]
   },
   resolve: {
     extensions: ['', '.js', '.jsx'],
@@ -18,14 +18,14 @@ var config = {
       test: /\.scss$/,
       loaders: ['style', 'css?sourceMap&root=..', 'sass?sourceMap'],
     }, {
-      test: /\.jsx$/,
-      loader: 'babel'
-    }, {
       test: /\.(png|jpg|gif|woff|woff2)$/,
       loader: 'url-loader?limit=8192'
     }, {
       test: /\.(mp4|ogg|svg)$/,
       loader: 'file-loader'
+    }, {
+      test: /\.jsx$/,
+      loader: 'babel'
     }]
   },
   sassLoader: {
@@ -65,7 +65,15 @@ if (env === 'production') {
   config.plugins = [...config.plugins,
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({
-      minimize: true
+      compress: {
+        warnings: false,
+        drop_console: true,
+        drop_debugger: true,
+        dead_code: true
+      },
+      minimize: true,
+      sourceMap: false,
+      'screw-ie8': true
     }),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.AggressiveMergingPlugin(),
@@ -78,6 +86,22 @@ if (env === 'production') {
   ];
   config.devtool = false;
   config.debug = false;
+} else {
+  config.entry.bundle = [
+    'webpack-dev-server/client?http://0.0.0.0:3000', // WebpackDevServer host and port
+    'webpack/hot/only-dev-server', // "only" prevents reload on syntax errors
+    ...config.entry.bundle
+  ];
+  config.plugins = [
+    ...config.plugins,
+    new webpack.HotModuleReplacementPlugin()
+  ];
+  config.module.loaders = [{
+      test: /\.jsx$/,
+      loader: 'react-hot'
+    },
+    ...config.module.loaders
+  ];
 }
 
 module.exports = config;

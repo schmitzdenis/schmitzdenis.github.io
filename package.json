@@ -8,8 +8,8 @@
   "main": "index.js",
   "scripts": {
     "copy": "copyfiles ./index.html ./CNAME 'images/**/*' ./dist",
-    "dev": "webpack-dev-server --hot --inline",
-    "prod": "WEBPACK_ENV=production npm run copy & webpack-dev-server --inline --progress --hot",
+    "dev": "webpack-dev-server --inline",
+    "prod": "WEBPACK_ENV=production npm run copy & webpack-dev-server --inline",
     "build": "npm run copy & WEBPACK_ENV=production webpack --progress --display-modules --display-chunks",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -47,7 +47,7 @@
     "file-loader": "*",
     "jsx-loader": "*",
     "node-sass": "*",
-    "react-hot-loader": "*",
+    "react-hot-loader": "^1.3.0",
     "sass-loader": "*",
     "style-loader": "*",
     "surge": "*",
