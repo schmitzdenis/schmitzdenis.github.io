@@ -16,36 +16,33 @@ class ReleaseList extends React.Component {
     }
   }
 
-  _setActive(id){
-    var updatedReleases = this.state.releases.map((item)=> {
-      item.isActive = (item.tag_name === id)?true:false;
+  _setActive(id) {
+    var updatedReleases = this.state.releases.map((item) => {
+      item.isActive = (item.tag_name === id && item.isActive !== true)
+        ? true
+        : false;
       return item;
     });
-    this.setState({releases:updatedReleases});
+
+    this.setState({releases: updatedReleases});
   }
 
   _getListComponents(items) {
-    return items.map((item) => <Release key={item.tag_name}
-    infos={item}
-    setActive={this._setActive.bind(this)}
-    isActive = {item.isActive||false}
-    />);
+    return items.map((item) => {
+      let props = {
+        key: item.tag_name,
+        infos: item,
+        setActive: this._setActive.bind(this),
+        isActive: item.isActive || false
+      }
+      return <Release {...props}/>
+    });
   }
   componentDidUpdate() {
     //$('#releases').foundation();
     $(this.compEl).foundation();
 
   }
-  render() {
-    let releasesComponents = this._getListComponents(this.state.releases);
-    return <div id="releases" class="release_list_component" ref={(compEl) => this.compEl = compEl}>
-      <h1>React releases</h1>
-      <ul>
-        {releasesComponents}
-      </ul>
-    </div>
-  }
-
   componentDidMount() {
     this.serverRequest = $.get(this.apiUrl, (results) => {
       this.setState({releases: results});
@@ -55,6 +52,22 @@ class ReleaseList extends React.Component {
   componentWillUnmount() {
     this.serverRequest.abort();
   }
+
+  render() {
+    let releasesComponents = this._getListComponents(this.state.releases);
+    return <div id="releases" class="release_list_component" ref={(compEl) => this.compEl = compEl}>
+      <h1>React releases</h1>
+      <ul>
+        {releasesComponents}
+      </ul>
+    </div>
+  }
 }
+
+ReleaseList.propTypes = {
+  name: React.PropTypes.string
+};
+
+ReleaseList.defaultProps = { name: 'Unamed list' };
 
 export default ReleaseList;

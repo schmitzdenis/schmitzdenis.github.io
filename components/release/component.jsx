@@ -6,8 +6,9 @@ import Marked from 'marked';
 
 class Release extends React.Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    this._setActive = this._setActive.bind(this);
   }
 
   _parseDate(published_at) {
@@ -22,24 +23,43 @@ class Release extends React.Component {
     this.props.setActive(this.props.infos.tag_name);
   }
 
+  _bodyEl(body){
+    let bodyParsed = this._parseMd(body);
+    if(bodyParsed){
+     return <div className="release_content"
+       dangerouslySetInnerHTML={{__html: bodyParsed}}></div>;
+    }
+    return null;
+  }
+
+  _buttonEl(bodyEl){
+    if(bodyEl){
+      return <button onClick={this._setActive}>CHANGELOG</button>
+    }
+    return null;
+  }
+
   render() {
     let date = this._parseDate(this.props.infos.published_at);
-    let body = this._parseMd(this.props.infos.body);
+    let bodyEl = this._bodyEl(this.props.infos.body);
     let activeClass = (this.props.isActive)?'active':'idle';
+    let button = this._buttonEl(bodyEl);
 
     return <li className={`release_component ${activeClass}`}>
       <a  className="name" href="#">
         {this.props.infos.tag_name} {date}
       </a>
-      <button onClick={this._setActive.bind(this)}>CHANGELOG</button>
-      <div className="release_content"
-        dangerouslySetInnerHTML={{__html: body}}></div>
+      {button}
+      {bodyEl}
     </li>;
   }
 }
 
-// Release.getDefaultProps = {
-//   isActive: false
-// };
+Release.propTypes = {
+  infos: React.PropTypes.object,
+  setActive: React.PropTypes.func,
+  isActive:React.PropTypes.bool
+};
+Release.defaultProps = { isActive: false };
 
 export default Release;
