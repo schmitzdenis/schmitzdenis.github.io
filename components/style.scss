@@ -34,8 +34,7 @@ $nav-height: 3rem;
 
 $susy : (
   columns: 12,
-  global-box-sizing: border-box,//content-box,
-  //debug: (image: show)
+  global-box-sizing: border-box
 );
 
 $susy-media: (
@@ -57,16 +56,17 @@ body {
   margin: 0;
   background-color: #3b2f63;
   background-image: linear-gradient(#2B243C 0%, #2E1E5D 100%);
-
   color: #fff;
-
   font-family: sans-serif;
   font-weight: 100;
   letter-spacing: 0.01em;
+  height: 100%;
+  > div#content{
+    padding-top: 64px;
+  }
 }
 
 @import "nav/styles";
-@import "offcanvas/styles";
 @import "form";
 @import "gallery/styles";
 @import "tech/styles";

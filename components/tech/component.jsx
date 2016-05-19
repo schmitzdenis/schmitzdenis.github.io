@@ -2,10 +2,13 @@ import React from 'react';
 
 class Tech extends React.Component {
   render() {
-    return <div className="tech">
+    return <li className="tech_component">
+      <div className="tech">
         <div className="flipper">
           <div className="front">
-            <div className="image" style={{backgroundImage: 'url(' + this.props.data.image + ')'}}></div>
+            <div className="image" style={{
+              backgroundImage: 'url(' + this.props.data.image + ')'
+            }}></div>
           </div>
           <div className="back">
             <div className="title">
@@ -17,6 +20,7 @@ class Tech extends React.Component {
           </div>
         </div>
       </div>
+    </li>
   }
 }
 module.exports = Tech;

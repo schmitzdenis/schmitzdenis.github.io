@@ -7,13 +7,15 @@
     color: gray;
   }
   .release_content{
-    visibility: hidden;
+
+    display: none;
     height: 0;
   }
   &.active{
     .release_content{
+      padding: 2rem;
       height: inherit;
-      visibility:visible;
+      display: inherit;
     }
   }
 }
