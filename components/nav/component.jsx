@@ -1,7 +1,7 @@
 import React from 'react';
 import jQuery from 'jquery';
 import Foundation from 'foundation-sites';
-
+import {Link} from 'react-router';
 
 class Nav extends React.Component {
 
@@ -11,10 +11,9 @@ class Nav extends React.Component {
 
   render() {
     return <ul className="nav-links" ref = {(compEl)=> this.compEl = compEl}>
-            <li><a href="#about">About</a></li>
-            <li><a href="#techs">Techs</a></li>
-            <li><a href="#lab">Code Lab</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><Link to="/about">About</Link></li>
+            <li><Link to="/release">Code Lab</Link></li>
+            <li><Link to="/sandbox">Matrix</Link></li>
           </ul>
   }
 }

@@ -8,7 +8,7 @@
   "main": "index.js",
   "scripts": {
     "copy": "copyfiles ./index.html ./CNAME 'images/**/*' ./dist",
-    "dev": "webpack-dev-server --inline",
+    "start": "webpack-dev-server --inline",
     "prod": "WEBPACK_ENV=production npm run copy & webpack-dev-server --inline",
     "build": "npm run copy & WEBPACK_ENV=production webpack --progress --display-modules --display-chunks",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -62,6 +62,7 @@
     "moment": "^2.13.0",
     "react": "^15",
     "react-dom": "^15",
+    "react-router": "^2.4.1",
     "susy": "^2"
   }
 }

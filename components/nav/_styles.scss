@@ -8,7 +8,7 @@ nav.nav-bar {
   width: 100%;
   top: 0;
   left: auto;
-  background-color: rgba(157, 0, 255, 0.99);
+  background-color: rgba(0, 194, 255, 0.97);
   //border-bottom: solid 2px rgba(0, 0, 0, 0.3);
   box-shadow: 0 1px 5px black;
   div.nav-container {
@@ -46,6 +46,10 @@ nav.nav-bar {
       li {
         padding: 0 1rem;
         display: inline;
+        a{
+          color:white;
+          font-weight: 400;
+        }
       }
     }
   }

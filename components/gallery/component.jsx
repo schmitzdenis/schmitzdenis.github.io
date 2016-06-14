@@ -18,8 +18,8 @@ class Gallery extends React.Component {
         description: 'Sass is an extension of CSS3, adding nested rules, variables, mixins, selector inheritance, and more. It\'s translated to well-formatted, standard CSS using the command line tool or a web-framework plugin.'
       }, {
         key: 3,
-        name: 'Susy',
-        image: '/images/techs/susy.svg',
+        name: 'PostGres',
+        image: '/images/techs/postgres.svg',
         description: 'YOUR MARKUP, YOUR DESIGN, YOUR OPINIONS | OUR MATH.'
       }, {
         key: 4,
