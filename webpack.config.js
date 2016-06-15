@@ -52,8 +52,15 @@ var config = {
     },
     proxy: {
       '/api/*': {
-        target: 'https://codeapp.heroku.com',
-        secure: true,
+        //target: 'https://codeapp.heroku.com',
+        target: {
+          "host": "localhost",
+          "protocol": 'http:',
+          "port": 5000
+        },
+        ignorePath: true,
+        changeOrigin: true,
+        secure: false
       },
     }
   },
