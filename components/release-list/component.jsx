@@ -55,14 +55,17 @@ class ReleaseList extends React.Component {
 
   render() {
     let releasesComponents = this._getListComponents(this.state.releases);
-    return <section>
-      <div id="releases" class="release_list_component" ref={(compEl) => this.compEl = compEl}>
-        <h1>React releases</h1>
-        <ul>
-          {releasesComponents}
-        </ul>
-      </div>
-    </section>
+    return (
+      <section>
+        <div id="releases"
+             class="release_list_component"
+             ref={(compEl) => this.compEl = compEl}>
+          <ul>
+            {releasesComponents}
+          </ul>
+        </div>
+      </section>
+    );
   }
 }
 
@@ -70,6 +73,8 @@ ReleaseList.propTypes = {
   name: React.PropTypes.string
 };
 
-ReleaseList.defaultProps = { name: 'Unamed list' };
+ReleaseList.defaultProps = {
+  name: 'Unamed list'
+};
 
 export default ReleaseList;

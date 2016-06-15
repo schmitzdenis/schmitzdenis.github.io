@@ -5,8 +5,8 @@ import ReactDOM from 'react-dom';
 import {Router, Route, browserHistory} from 'react-router';
 
 import About from './components/about/component';
-import ReleaseList from './components/release-list/component';
-import Matrix from './components/sandbox/component';
+import ReleaseView from './components/release-view/component';
+import Sandbox from './components/sandbox/component';
 
 import Contact from './components/contact/component';
 import Layout from './components/layout';
@@ -23,7 +23,7 @@ const routes = {
   childRoutes: [
     {
       path: 'release',
-      component: ReleaseList
+      component: ReleaseView
     }, {
       path: 'about',
       component: About
@@ -32,7 +32,7 @@ const routes = {
       component:Contact
     },{
       path:'sandbox',
-      component:Matrix
+      component:Sandbox
     }
   ]
 };

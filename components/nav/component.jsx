@@ -13,7 +13,7 @@ class Nav extends React.Component {
     return <ul className="nav-links" ref = {(compEl)=> this.compEl = compEl}>
             <li><Link to="/about">About</Link></li>
             <li><Link to="/release">Code Lab</Link></li>
-            <li><Link to="/sandbox">Matrix</Link></li>
+            <li><Link to="/sandbox">Sandbox</Link></li>
           </ul>
   }
 }
